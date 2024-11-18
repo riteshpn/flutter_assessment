@@ -1,104 +1,69 @@
-import 'package:flutter/material.dart';
 
-class ShoeLandingScreen extends StatelessWidget {
-  const ShoeLandingScreen({super.key});
+
+import 'package:flutter/material.dart';
+import 'package:flutter_assessment/splash/controllers/onborading_controller.dart';
+import 'package:flutter_assessment/splash/extensions/color_extension.dart';
+import 'package:flutter_assessment/splash/widgets/dot-indicator_widget.dart';
+import 'package:flutter_assessment/splash/widgets/onboarding_widget.dart';
+
+class OnboardingView extends StatefulWidget {
+  const OnboardingView({super.key});
+
+  @override
+  State<OnboardingView> createState() => _OnboardingViewState();
+}
+
+class _OnboardingViewState extends State<OnboardingView> {
+  final OnboardingController _controller = OnboardingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Shoe Image
-            Image.asset(
-              'assets/splashlogo.png',
-              height: 250,
-            ),
-
-            const SizedBox(height: 40),
-
-            // Title
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
-                'Start Journey\nWith Shoes',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+          
+            Expanded(
+              child: PageView.builder(
+                controller: _controller.pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _controller.currentPage = index;
+                  });
+                },
+                itemCount: _controller.onboardingPages.length,
+                itemBuilder: (context, index) {
+                  final page = _controller.onboardingPages[index];
+                  return OnboardingPage(
+                    imagePath: page.imagePath,
+                    title: page.title,
+                    subtitle: page.subtitle,
+                  );
+                },
               ),
             ),
 
-            const SizedBox(height: 16),
-
-            // Subtitle
-            const Text(
-              'Smart, Gorgeous & Fashionable Collection',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white54,
-                fontSize: 16,
-              ),
-            ),
-
-            const Spacer(),
-
-            // Dots and Button
+            
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Column(
                 children: [
-                  // Page Indicator Dots
+                  // Page Indicator
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 8,
-                        width: 24,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
+                    children: List.generate(
+                      _controller.onboardingPages.length,
+                      (index) => DotIndicator(
+                        isActive: index == _controller.currentPage,
                       ),
-                      const SizedBox(width: 8),
-                      Container(
-                        height: 8,
-                        width: 8,
-                        decoration: BoxDecoration(
-                          color: Colors.white38,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                  const SizedBox(height: 20),
 
-                  // Get Started Button
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF5C9DF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
-                        vertical: 16,
-                      ),
-                    ),
-                    child: const Text(
-                      'Get Started',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 16),
+
+                  // Button
+                  buttonwidget(context),
                 ],
               ),
             ),
@@ -106,5 +71,33 @@ class ShoeLandingScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget buttonwidget(BuildContext context,) {
+    return ElevatedButton(
+                  onPressed: () {
+                    _controller.goToNextPage(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.button,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 16,
+                    ),
+                  ),
+                  child: Text(
+                    _controller.currentPage ==
+                            _controller.onboardingPages.length - 1
+                        ? 'Get Started'
+                        : 'Next',
+                    style: const TextStyle(
+                      color: AppColors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                );
   }
 }
