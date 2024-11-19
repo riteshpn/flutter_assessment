@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/home/home_page.dart';
+import 'package:flutter_assessment/detail_screen/view/product_detail_screen.dart';
 import 'package:flutter_assessment/sign_in/login_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -24,11 +24,6 @@ import 'package:provider/provider.dart';
 //   }
 // }
 
-
-
-
-
-
 void main() {
   runApp(MyApp());
 }
@@ -40,10 +35,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
       ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomePage(),
-      ),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false, home: ProductDetailsScreen()),
     );
   }
 }

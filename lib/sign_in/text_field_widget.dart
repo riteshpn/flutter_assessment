@@ -52,15 +52,15 @@ class EmailTextField extends StatelessWidget {
         const SizedBox(height: 8),
         TextFormField(
           controller: controller,
-          // onChanged: onChanged,
+          
           style: const TextStyle(
-            color: Colors.white, // Ensures input text is white and visible
+            color: Colors.white, 
           ),
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xFF1A1A1A), // Matches your design's background
+            fillColor: const Color(0xFF1A1A1A), 
             hintText: 'Enter your email',
-            hintStyle: const TextStyle(color: Colors.grey), // Hint text color
+            hintStyle: const TextStyle(color: Colors.grey),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 16,
               horizontal: 12,
