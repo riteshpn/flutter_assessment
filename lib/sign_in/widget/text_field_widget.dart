@@ -1,27 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class EmailTextField extends StatelessWidget {
-//   final TextEditingController controller;
-//   final ValueChanged<String> onChanged;
-
-//   const EmailTextField(
-//       {required this.controller, required this.onChanged, Key? key})
-//       : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextField(
-//       controller: controller,
-//       onChanged: onChanged,
-//       decoration: InputDecoration(
-//         labelText: 'Email Address',
-//         hintText: 'Enter your email',
-//         border: OutlineInputBorder(
-//           borderRadius: BorderRadius.circular(8),),
-//       ),
-//     );
-//   }
-// }
 
 
 import 'package:flutter/material.dart';
@@ -41,7 +17,7 @@ class EmailTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Email Address',
           style: TextStyle(
             color: Colors.white,

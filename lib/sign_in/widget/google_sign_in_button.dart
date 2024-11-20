@@ -22,16 +22,3 @@ class GoogleSignInButton extends StatelessWidget {
 
 
 
-// width: Fixed (335px)px;
-// height: Hug (54px)px;
-// top: 574px;
-// left: 20px;
-// padding: 15px 32px 15px 32px;
-// gap: 8px;
-// border-radius: 50px 0px 0px 0px;
-// opacity: 0px;
-// background: #161F28;
-
-
-
-// background: #1A2530;

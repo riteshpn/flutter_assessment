@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/cart_checkout/view/cart_checkout_screen.dart';
 import 'package:flutter_assessment/detail_screen/colors_extention.dart';
 
 class ProductPriceWidget extends StatelessWidget {
@@ -14,13 +15,13 @@ class ProductPriceWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Price",
               style: TextStyle(color: Colors.grey),
             ),
             Text(
               "\$${price.toStringAsFixed(2)}",
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.primaryText,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -29,12 +30,15 @@ class ProductPriceWidget extends StatelessWidget {
           ],
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CartCheckoutScreen()));
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
-            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           ),
-          child: Text(
+          child: const Text(
             "Add to Cart",
             style: TextStyle(color: Colors.white),
           ),

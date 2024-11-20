@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/home/bottom_navbar_widget.dart';
-import 'package:flutter_assessment/home/new_arrival_widget.dart';
-import 'package:flutter_assessment/home/product-list.dart';
-import 'package:flutter_assessment/home/sample_widget_list.dart';
-import 'package:flutter_assessment/home/search_widget.dart';
-import 'package:flutter_assessment/sign_in/circle_icon_widget.dart';
+import 'package:flutter_assessment/home/widget/bottom_navbar_widget.dart';
+import 'package:flutter_assessment/home/widget/new_arrival_widget.dart';
+import 'package:flutter_assessment/home/widget/product-list.dart';
+import 'package:flutter_assessment/home/widget/sample_widget_list.dart';
+import 'package:flutter_assessment/home/widget/search_widget.dart';
+import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
 // Import the Custom Nav Bar
 
 class HomePage extends StatefulWidget {
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                     CircleIconWidget(
                       icon: Icons.do_not_touch,
                     ),
-                    Column(
+                    const Column(
                       children: [
                         Text(
                           "Store Location",
@@ -60,10 +60,10 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SearchBarWidget(controller: searchController),
-                CustomTabBar(
+                const CustomTabBar(
                   tabs: ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 HorizontalProductList(),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -104,10 +104,10 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Colors.blue,
-          child: Icon(Icons.backpack, color: Colors.white),
+          child: const Icon(Icons.backpack, color: Colors.white),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-                30), // Rounded corners if you want a pill-shaped FAB
+                30),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -5,7 +5,7 @@ import 'package:flutter_assessment/detail_screen/view/product_image_slider.dart'
 import 'package:flutter_assessment/detail_screen/view/product_price_widget.dart';
 import 'package:flutter_assessment/detail_screen/view/product_size_selector.dart';
 import 'package:flutter_assessment/detail_screen/view_model/detail_product_view.dart';
-import 'package:flutter_assessment/sign_in/circle_icon_widget.dart';
+import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final ProductDetailViewModel productViewModel = ProductDetailViewModel();
@@ -34,7 +34,10 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                   const Text(
                     "Men's Shoes",
-                    style: TextStyle(color: AppColors.primaryText),
+                    style: TextStyle(
+                        color: AppColors.primaryText,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
                   ),
                   CircleIconWidget(
                     icon: Icons.shopping_cart,
@@ -60,22 +63,13 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-
               Text(
                 "\$${product.originalPrice.toStringAsFixed(2)}",
-                style: TextStyle(
+                style: const TextStyle(
                     color: AppColors.primaryText,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
-              // Text(
-              //   "\$${product.discountedPrice.toStringAsFixed(2)}",
-              //   style: const TextStyle(
-              //     color: AppColors.priceColor,
-              //     fontSize: 22,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
               const SizedBox(height: 16),
               Text(
                 product.description,
@@ -86,22 +80,20 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              Text(
+              const Text(
                 "Gallery",
                 style: TextStyle(fontSize: 18, color: AppColors.primaryText),
               ),
-
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-
               ProductGalleryWidget(
                 gallery: product.gallery,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(

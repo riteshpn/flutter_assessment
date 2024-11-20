@@ -1,6 +1,6 @@
 // viewmodels/product_viewmodel.dart
 
-import 'package:flutter_assessment/home/product_model.dart';
+import 'package:flutter_assessment/home/model/product_model.dart';
 
 class ProductViewModel {
   final List<Product> _products = [

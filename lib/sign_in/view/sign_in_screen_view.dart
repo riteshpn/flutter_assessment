@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/sign_in/circle_icon_widget.dart';
-import 'package:flutter_assessment/sign_in/google_sign_in_button.dart';
-import 'package:flutter_assessment/sign_in/password_widget.dart';
-import 'package:flutter_assessment/sign_in/sign_in_button.dart';
-import 'package:flutter_assessment/sign_in/text_field_widget.dart';
+import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
+import 'package:flutter_assessment/sign_in/widget/google_sign_in_button.dart';
+import 'package:flutter_assessment/sign_in/widget/password_widget.dart';
+import 'package:flutter_assessment/sign_in/widget/sign_in_button.dart';
+import 'package:flutter_assessment/sign_in/widget/text_field_widget.dart';
 import 'package:provider/provider.dart';
 
-import 'login_view_model.dart'; // Replace with your actual import path
+import '../view_model/login_view_model.dart'; // Replace with your actual import path
 
 class LoginView extends StatelessWidget {
   @override

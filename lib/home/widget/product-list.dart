@@ -1,7 +1,7 @@
 // views/horizontal_product_list.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/home/product_model.dart';
-import 'package:flutter_assessment/home/product_view_model.dart';
+import 'package:flutter_assessment/home/model/product_model.dart';
+import 'package:flutter_assessment/home/view_model/product_view_model.dart';
 
 class HorizontalProductList extends StatelessWidget {
   final ProductViewModel viewModel = ProductViewModel();
@@ -35,7 +35,7 @@ class ProductCard extends StatelessWidget {
       children: [
         Container(
           width: 150,
-          margin: EdgeInsets.symmetric(horizontal: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.black,
@@ -53,7 +53,7 @@ class ProductCard extends StatelessWidget {
                     height: 70,
                     fit: BoxFit.cover,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                 ],
               ),
               Padding(
@@ -61,15 +61,15 @@ class ProductCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8),
-                    Text(
+                    const SizedBox(height: 8),
+                    const Text(
                       "BEST SELLER",
                       style: TextStyle(fontSize: 14, color: Colors.blue),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       product.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -78,12 +78,12 @@ class ProductCard extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   "r: ${product.price.toString()}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -100,14 +100,14 @@ class ProductCard extends StatelessWidget {
           child: Container(
             width: 40,
             height: 40,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 bottomRight: Radius.circular(10),
               ),
             ),
-            child: Center(
+            child: const Center(
               child: Icon(
                 Icons.add,
                 color: Colors.white,

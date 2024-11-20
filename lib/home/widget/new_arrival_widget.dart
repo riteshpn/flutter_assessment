@@ -1,7 +1,7 @@
 // views/horizontal_product_list.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/home/product_model.dart';
-import 'package:flutter_assessment/home/product_view_model.dart';
+import 'package:flutter_assessment/home/model/product_model.dart';
+import 'package:flutter_assessment/home/view_model/product_view_model.dart';
 
 class NewArrivalWidget extends StatelessWidget {
   final ProductViewModel viewModel = ProductViewModel();
@@ -18,7 +18,7 @@ class NewArrivalWidget extends StatelessWidget {
         itemCount: newArrivalProducts.length,
         itemBuilder: (context, index) {
           final product = newArrivalProducts[index];
-          return NewArrivaProductCard(newArrivalProduts: product);
+          return NewArrivaProductCard(newArrivalProducts: product);
         },
       ),
     );
@@ -26,15 +26,15 @@ class NewArrivalWidget extends StatelessWidget {
 }
 
 class NewArrivaProductCard extends StatelessWidget {
-  final NewArrivalProduct newArrivalProduts;
+  final NewArrivalProduct newArrivalProducts;
 
-  const NewArrivaProductCard({required this.newArrivalProduts});
+  const NewArrivaProductCard({required this.newArrivalProducts});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 335,
-      margin: EdgeInsets.symmetric(horizontal: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.black,
@@ -45,24 +45,24 @@ class NewArrivaProductCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 15),
-              Text(
+              const SizedBox(height: 15),
+              const Text(
                 "BEST CHOICE",
                 style: TextStyle(fontSize: 14, color: Colors.blue),
               ),
-              SizedBox(height: 1),
+              const SizedBox(height: 1),
               Text(
-                newArrivalProduts.name,
-                style: TextStyle(
+                newArrivalProducts.name,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
-                "r: ${newArrivalProduts.price.toString()}",
-                style: TextStyle(
+                "r: ${newArrivalProducts.price.toString()}",
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -73,13 +73,13 @@ class NewArrivaProductCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 30, bottom: 25),
             child: Image.asset(
-              newArrivalProduts.image,
+              newArrivalProducts.image,
               width: 150,
               height: 90,
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 0),
+          const SizedBox(width: 0),
         ],
       ),
     );
