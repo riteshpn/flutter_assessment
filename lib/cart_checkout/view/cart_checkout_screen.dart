@@ -31,6 +31,9 @@ class _CartCheckoutScreenState extends State<CartCheckoutScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CircleIconWidget(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icons.arrow_back,
                     iconColor: AppColors.primaryText,
                   ),

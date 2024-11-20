@@ -9,8 +9,14 @@ class SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text('Sign In'),
+      child: Text(
+        'Sign In',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
       style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
         minimumSize: Size(double.infinity, 50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),

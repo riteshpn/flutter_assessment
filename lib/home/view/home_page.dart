@@ -5,6 +5,7 @@ import 'package:flutter_assessment/home/widget/product-list.dart';
 import 'package:flutter_assessment/home/widget/sample_widget_list.dart';
 import 'package:flutter_assessment/home/widget/search_widget.dart';
 import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
+import 'package:flutter_assessment/slide/view/menu_widget.dart';
 // Import the Custom Nav Bar
 
 class HomePage extends StatefulWidget {
@@ -31,8 +32,15 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CircleIconWidget(
-                      icon: Icons.do_not_touch,
+                    Container(
+                      height: 48,
+                      width: 48,
+                      decoration: const BoxDecoration(
+                        color: Colors.black, // Black background color
+                        shape: BoxShape.circle, // Makes the container circular
+                      ),
+                      child:
+                          const MenuWidget(), // Your child widget inside the container
                     ),
                     const Column(
                       children: [
@@ -56,12 +64,29 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    CircleIconWidget(icon: Icons.ac_unit_rounded)
+                    CircleIconWithDotWidget(
+                      image: "assets/Frame.png",
+                      size: 50.0,
+
+                      backgroundColor: Colors.black,
+                      iconColor: Colors.white,
+                      showDot: true, // Enables the red dot
+                      dotSize: 8.0, // Custom size for the dot
+                    ),
                   ],
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
                 SearchBarWidget(controller: searchController),
+                const SizedBox(
+                  height: 15,
+                ),
                 const CustomTabBar(
                   tabs: ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
+                ),
+                const SizedBox(
+                  height: 30,
                 ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +104,13 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
                 HorizontalProductList(),
+                const SizedBox(
+                  height: 30,
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -96,6 +127,9 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
                 NewArrivalWidget(),
               ],
             ),
@@ -106,8 +140,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blue,
           child: const Icon(Icons.backpack, color: Colors.white),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                30),
+            borderRadius: BorderRadius.circular(30),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/slide/view/slide_menu_screen.dart';
 
 class LoginViewModel extends ChangeNotifier {
   String _email = '';
@@ -26,18 +27,19 @@ class LoginViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Simulate Login
-  Future<void> login(BuildContext context) async {
-    if (_email.isEmpty || _password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please fill in all fields.')),
-      );
-      return;
-    }
 
-    // Simulated login success
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Login Successful!')),
+  Future<void> login(BuildContext context) async {
+    // if (_email.isEmpty || _password.isEmpty) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(content: Text('Please fill in all fields.')),
+    //   );
+    //   return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => SideMenu()), // HomePage is your target screen
     );
   }
+
+  
 }

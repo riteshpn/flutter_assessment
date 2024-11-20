@@ -8,17 +8,22 @@ class GoogleSignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
+    return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Image.asset('assets/G.png', height: 24), // Add a Google logo asset
-      label: Text('Sign in with Google'),
-      style: OutlinedButton.styleFrom(
-        minimumSize: Size(double.infinity, 50),
-        side: BorderSide(color: Colors.blue),
+      icon: Image.asset('assets/G.png', height: 24), 
+      label: const Text(
+        'Sign in with Google',
+        style: TextStyle(color: Colors.white, fontSize: 16),
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.black, 
+        minimumSize: const Size(double.infinity, 50), 
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
       ),
     );
   }
 }
-
-
-

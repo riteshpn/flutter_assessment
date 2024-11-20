@@ -7,6 +7,7 @@ import 'package:flutter_assessment/sign_in/widget/text_field_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../view_model/login_view_model.dart'; // Replace with your actual import path
+ // Import your home page
 
 class LoginView extends StatelessWidget {
   @override
@@ -16,27 +17,27 @@ class LoginView extends StatelessWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    // Get the device's height and width
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A2530), 
+      backgroundColor: const Color(0xFF1A2530),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(screenWidth * 0.04), 
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: screenHeight * 0.05), 
-            CircleIconWidget(icon: Icons.abc),
+            SizedBox(height: screenHeight * 0.05),
+            CircleIconWidget(icon: Icons.arrow_back,onPressed: (){
+               Navigator.pop(context);
+            },),
             SizedBox(height: screenHeight * 0.02),
             Center(
               child: Text(
                 'Hello Again!',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize:
-                      screenWidth * 0.07,
+                  fontSize: screenWidth * 0.07,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -48,7 +49,7 @@ class LoginView extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: const Color(0xFF707B81),
-                  fontSize: screenWidth * 0.045, 
+                  fontSize: screenWidth * 0.045,
                 ),
               ),
             ),
@@ -66,7 +67,6 @@ class LoginView extends StatelessWidget {
               onChanged: viewModel.setPassword,
               onVisibilityToggle: viewModel.togglePasswordVisibility,
             ),
-           
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -75,7 +75,7 @@ class LoginView extends StatelessWidget {
                   'Recovery Password',
                   style: TextStyle(
                     color: Colors.grey,
-                    fontSize: screenWidth * 0.045, 
+                    fontSize: screenWidth * 0.045,
                   ),
                 ),
               ),
@@ -83,18 +83,31 @@ class LoginView extends StatelessWidget {
             SizedBox(height: screenHeight * 0.03),
             // Sign-in button
             SignInButton(onPressed: () => viewModel.login(context)),
-            SizedBox(height: screenHeight * 0.02),
+            SizedBox(height: screenHeight * 0.03),
             // Google Sign-in button
             GoogleSignInButton(onPressed: () {}),
-            SizedBox(height: screenHeight * 0.05),
+            SizedBox(height: screenHeight * 0.15),
             Center(
               child: TextButton(
                 onPressed: () {},
-                child: Text(
-                  "Don't Have An Account? Sign Up For Free",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: screenWidth * 0.045,
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Don't Have An Account? ",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: screenWidth * 0.035,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Sign Up For Free",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: screenWidth * 0.035,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

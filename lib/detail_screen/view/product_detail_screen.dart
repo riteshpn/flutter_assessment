@@ -29,6 +29,9 @@ class ProductDetailsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleIconWidget(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icons.arrow_back,
                     iconColor: AppColors.primaryText,
                   ),
@@ -40,6 +43,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         fontSize: 18),
                   ),
                   CircleIconWidget(
+                    onPressed: () {},
                     icon: Icons.shopping_cart,
                     iconColor: AppColors.primaryText,
                   ),

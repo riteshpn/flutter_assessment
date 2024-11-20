@@ -17,6 +17,7 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Shoe Image
         Image.asset(
@@ -31,7 +32,6 @@ class OnboardingPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
             title,
-            textAlign: TextAlign.center,
             style: FontStyleEnum.title.style,
           ),
         ),
@@ -43,7 +43,6 @@ class OnboardingPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
             subtitle,
-            textAlign: TextAlign.center,
             style: FontStyleEnum.subtitle.style,
           ),
         ),
