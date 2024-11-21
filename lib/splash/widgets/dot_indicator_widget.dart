@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../extensions/color_extension.dart';
+import '../../common/extensions/color_extension.dart';
 
 class DotIndicator extends StatelessWidget {
   final bool isActive;

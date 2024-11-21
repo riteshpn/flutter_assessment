@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_assessment/detail_screen/view/product_detail_screen.dart';
 import 'package:flutter_assessment/home/model/product_model.dart';
 import 'package:flutter_assessment/home/view_model/product_view_model.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class HorizontalProductList extends StatelessWidget {
   final ProductViewModel viewModel = ProductViewModel();
+
+  HorizontalProductList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class HorizontalProductList extends StatelessWidget {
 class ProductCard extends StatelessWidget {
   final Product product;
 
-  const ProductCard({required this.product});
+  const ProductCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class ProductCard extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.black,
+              color: AppColors.blackColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -72,7 +75,7 @@ class ProductCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       const Text(
                         "BEST SELLER",
-                        style: TextStyle(fontSize: 14, color: Colors.blue),
+                        style: TextStyle(fontSize: 14, color: AppColors.blueColor),
                       ),
                       const SizedBox(height: 4),
                       Text(
@@ -80,7 +83,7 @@ class ProductCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                       ),
                     ],
@@ -95,7 +98,7 @@ class ProductCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                   ),
                 ),
@@ -110,7 +113,7 @@ class ProductCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: const BoxDecoration(
-                color: Colors.blue,
+                color: AppColors.blueColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   bottomRight: Radius.circular(10),
@@ -119,7 +122,7 @@ class ProductCard extends StatelessWidget {
               child: const Center(
                 child: Icon(
                   Icons.add,
-                  color: Colors.white,
+                  color: AppColors.white,
                   size: 24,
                 ),
               ),

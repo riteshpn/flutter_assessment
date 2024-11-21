@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_assessment/cart_checkout/view_model/cart_view_model.dart';
 import 'package:flutter_assessment/cart_checkout/widget/cart_item_widget.dart';
 import 'package:flutter_assessment/cart_checkout/widget/total_cost_widget.dart';
-import 'package:flutter_assessment/detail_screen/colors_extention.dart';
 import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class CartCheckoutScreen extends StatefulWidget {
   const CartCheckoutScreen({super.key});
@@ -18,7 +18,7 @@ class _CartCheckoutScreenState extends State<CartCheckoutScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.primaryBackground,
+        backgroundColor: AppColors.background,
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -35,17 +35,17 @@ class _CartCheckoutScreenState extends State<CartCheckoutScreen> {
                       Navigator.pop(context);
                     },
                     icon: Icons.arrow_back,
-                    iconColor: AppColors.primaryText,
+                    iconColor: AppColors.white,
                   ),
-                  Spacer(),
+                 const Spacer(),
                   const Text(
                     "My Cart",
                     style: TextStyle(
-                        color: AppColors.primaryText,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
               Expanded(

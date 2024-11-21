@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_assessment/detail_screen/view/product_detail_screen.dart';
 import 'package:flutter_assessment/home/model/product_model.dart';
 import 'package:flutter_assessment/home/view_model/product_view_model.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class NewArrivalWidget extends StatelessWidget {
   final ProductViewModel viewModel = ProductViewModel();
+
+  NewArrivalWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<NewArrivalProduct> newArrivalProducts =
         viewModel.newArrivalProducts;
 
-    return Container(
+    return SizedBox(
       height: 130,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -29,7 +32,7 @@ class NewArrivalWidget extends StatelessWidget {
 class NewArrivaProductCard extends StatelessWidget {
   final NewArrivalProduct newArrivalProducts;
 
-  const NewArrivaProductCard({required this.newArrivalProducts});
+  const NewArrivaProductCard({super.key, required this.newArrivalProducts});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class NewArrivaProductCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.black,
+          color: AppColors.blackColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,7 +59,7 @@ class NewArrivaProductCard extends StatelessWidget {
                 const SizedBox(height: 15),
                 const Text(
                   "BEST CHOICE",
-                  style: TextStyle(fontSize: 14, color: Colors.blue),
+                  style: TextStyle(fontSize: 14, color: AppColors.blueColor),
                 ),
                 const SizedBox(height: 1),
                 Text(
@@ -64,7 +67,7 @@ class NewArrivaProductCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -74,7 +77,7 @@ class NewArrivaProductCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ],

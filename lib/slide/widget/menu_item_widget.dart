@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/slide/model/menu_model.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class MenuItemWidget extends StatelessWidget {
   final MenuItemModel item;
 
   const MenuItemWidget({
-    Key? key,
+    super.key,
     required this.item,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class MenuItemWidget extends StatelessWidget {
         child: Row(
           children: [
             if (item.icon != null)
-              Icon(item.icon, size: 24.0, color: Colors.white)
+              Icon(item.icon, size: 24.0, color: AppColors.white)
             else if (item.imagePath != null)
               Image.asset(
                 item.imagePath!,
@@ -29,7 +30,7 @@ class MenuItemWidget extends StatelessWidget {
             const SizedBox(width: 16.0),
             Text(
               item.title,
-              style: const TextStyle(color: Colors.white, fontSize: 16.0),
+              style: const TextStyle(color: AppColors.white, fontSize: 16.0),
             ),
           ],
         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/sign_in/view/sign_in_screen_view.dart';
-import 'package:flutter_assessment/splash/controllers/onborading_controller.dart';
-import 'package:flutter_assessment/splash/extensions/color_extension.dart';
-import 'package:flutter_assessment/splash/widgets/dot-indicator_widget.dart';
+import 'package:flutter_assessment/splash/view_modell/onborading_controller.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
+import 'package:flutter_assessment/splash/widgets/dot_indicator_widget.dart';
+import 'package:flutter_assessment/splash/widgets/next_button_widget.dart';
 import 'package:flutter_assessment/splash/widgets/onboarding_widget.dart';
 
 class OnboardingView extends StatefulWidget {
@@ -13,7 +13,7 @@ class OnboardingView extends StatefulWidget {
 }
 
 class _OnboardingViewState extends State<OnboardingView> {
-  final OnboardingController _controller = OnboardingController();
+  final OnboardingViewModel _controller = OnboardingViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -66,50 +66,13 @@ class _OnboardingViewState extends State<OnboardingView> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    buttonwidget(context),
+                    NextButtonWidget( onboardingViewModel: _controller,)
                   ],
                 ),
               ),
             ],
           ),
         ],
-      ),
-    );
-  }
-
-  Widget buttonwidget(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        if (_controller.currentPage == _controller.onboardingPages.length - 1) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => LoginView()),
-          );
-        } else {
-          _controller.pageController.nextPage(
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
-        }
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.button,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 40,
-          vertical: 16,
-        ),
-      ),
-      child: Text(
-        _controller.currentPage == _controller.onboardingPages.length - 1
-            ? 'Next'
-            : 'Get Started',
-        style: const TextStyle(
-          color: AppColors.white,
-          fontSize: 16,
-        ),
       ),
     );
   }

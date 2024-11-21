@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/slide/view/slide_menu_screen.dart';
 
-class LoginViewModel extends ChangeNotifier {
+class LoginViewModel {
   String _email = '';
   String _password = '';
   bool _isPasswordVisible = false;
@@ -14,32 +14,21 @@ class LoginViewModel extends ChangeNotifier {
   // Setters
   void setEmail(String email) {
     _email = email;
-    notifyListeners();
   }
 
   void setPassword(String password) {
     _password = password;
-    notifyListeners();
   }
 
   void togglePasswordVisibility() {
     _isPasswordVisible = !_isPasswordVisible;
-    notifyListeners();
   }
-
 
   Future<void> login(BuildContext context) async {
-    // if (_email.isEmpty || _password.isEmpty) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(content: Text('Please fill in all fields.')),
-    //   );
-    //   return;
+    // Handle login functionality here
     Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (context) => SideMenu()), // HomePage is your target screen
+      MaterialPageRoute(builder: (context) => const SideMenu()),
     );
   }
-
-  
 }

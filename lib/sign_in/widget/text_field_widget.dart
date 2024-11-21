@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class EmailTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -9,8 +10,8 @@ class EmailTextField extends StatelessWidget {
   const EmailTextField({
     required this.controller,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class EmailTextField extends StatelessWidget {
         const Text(
           'Email Address',
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -30,13 +31,13 @@ class EmailTextField extends StatelessWidget {
           controller: controller,
           
           style: const TextStyle(
-            color: Colors.white, 
+            color: AppColors.white, 
           ),
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xFF1A1A1A), 
+            fillColor: AppColors.filledcolor,
             hintText: 'Enter your email',
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: const TextStyle(color: AppColors.greyColor),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 16,
               horizontal: 12,

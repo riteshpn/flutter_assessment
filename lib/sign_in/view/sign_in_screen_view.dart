@@ -4,39 +4,49 @@ import 'package:flutter_assessment/sign_in/widget/google_sign_in_button.dart';
 import 'package:flutter_assessment/sign_in/widget/password_widget.dart';
 import 'package:flutter_assessment/sign_in/widget/sign_in_button.dart';
 import 'package:flutter_assessment/sign_in/widget/text_field_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
+import 'package:flutter_assessment/sign_in/view_model/login_view_model.dart'; 
 
-import '../view_model/login_view_model.dart'; // Replace with your actual import path
- // Import your home page
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
-class LoginView extends StatelessWidget {
+  @override
+  _LoginViewState createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  // Create the ViewModel instance
+  final LoginViewModel _viewModel = LoginViewModel();
+
+  // Controllers for TextFields
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<LoginViewModel>(context);
-
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1A2530),
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(screenWidth * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: screenHeight * 0.05),
-            CircleIconWidget(icon: Icons.arrow_back,onPressed: (){
-               Navigator.pop(context);
-            },),
+            CircleIconWidget(
+              icon: Icons.arrow_back,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
             SizedBox(height: screenHeight * 0.02),
             Center(
               child: Text(
                 'Hello Again!',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: screenWidth * 0.07,
                   fontWeight: FontWeight.bold,
                 ),
@@ -48,7 +58,7 @@ class LoginView extends StatelessWidget {
                 'Welcome Back You\'ve Been Missed!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: const Color(0xFF707B81),
+                  color: AppColors.secondaryText,
                   fontSize: screenWidth * 0.045,
                 ),
               ),
@@ -56,16 +66,26 @@ class LoginView extends StatelessWidget {
             SizedBox(height: screenHeight * 0.04),
             // Email TextField
             EmailTextField(
-              controller: emailController,
-              onChanged: viewModel.setEmail,
+              controller: _emailController,
+              onChanged: (email) {
+                _viewModel.setEmail(email); // Update viewModel with the email
+              },
             ),
             SizedBox(height: screenHeight * 0.02),
             // Password TextField
             PasswordTextField(
-              controller: passwordController,
-              isPasswordVisible: viewModel.isPasswordVisible,
-              onChanged: viewModel.setPassword,
-              onVisibilityToggle: viewModel.togglePasswordVisibility,
+              controller: _passwordController,
+              isPasswordVisible: _viewModel.isPasswordVisible,
+              onChanged: (password) {
+                _viewModel.setPassword(
+                    password); // Update viewModel with the password
+              },
+              onVisibilityToggle: () {
+                setState(() {
+                  _viewModel
+                      .togglePasswordVisibility(); // Toggle password visibility
+                });
+              },
             ),
             Align(
               alignment: Alignment.centerRight,
@@ -74,7 +94,7 @@ class LoginView extends StatelessWidget {
                 child: Text(
                   'Recovery Password',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppColors.greyColor,
                     fontSize: screenWidth * 0.045,
                   ),
                 ),
@@ -82,7 +102,9 @@ class LoginView extends StatelessWidget {
             ),
             SizedBox(height: screenHeight * 0.03),
             // Sign-in button
-            SignInButton(onPressed: () => viewModel.login(context)),
+            SignInButton(onPressed: () {
+              _viewModel.login(context); // Trigger the login
+            }),
             SizedBox(height: screenHeight * 0.03),
             // Google Sign-in button
             GoogleSignInButton(onPressed: () {}),
@@ -96,14 +118,14 @@ class LoginView extends StatelessWidget {
                       TextSpan(
                         text: "Don't Have An Account? ",
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: AppColors.greyColor,
                           fontSize: screenWidth * 0.035,
                         ),
                       ),
                       TextSpan(
                         text: "Sign Up For Free",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontSize: screenWidth * 0.035,
                         ),
                       ),

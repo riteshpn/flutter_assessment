@@ -1,14 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/common/toast_widget.dart';
+
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class CustomTabBar extends StatefulWidget {
   final List<String> tabs;
   final ValueChanged<int>? onTabSelected;
+  final String message;
 
-  const CustomTabBar({
-    required this.tabs,
-    this.onTabSelected,
-    Key? key,
-  }) : super(key: key);
+  const CustomTabBar(
+      {super.key, required this.tabs, this.onTabSelected, required this.message});
 
   @override
   _CustomTabBarState createState() => _CustomTabBarState();
@@ -29,6 +31,9 @@ class _CustomTabBarState extends State<CustomTabBar> {
               setState(() {
                 selectedIndex = index;
               });
+
+              ToastWidget.showToast(
+                  message: "Selected Tab:${widget.tabs[index]}");
               if (widget.onTabSelected != null) {
                 widget.onTabSelected!(index);
               }
@@ -38,18 +43,22 @@ class _CustomTabBarState extends State<CustomTabBar> {
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               margin: const EdgeInsets.only(right: 12),
               decoration: BoxDecoration(
-                color:
-                    selectedIndex == index ? Colors.blue : Colors.transparent,
+                color: selectedIndex == index
+                    ? AppColors.blueColor
+                    : AppColors.transparentColor,
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color:
-                      selectedIndex == index ? Colors.transparent : Colors.grey,
+                  color: selectedIndex == index
+                      ? AppColors.transparentColor
+                      : AppColors.greyColor,
                 ),
               ),
               child: Text(
                 widget.tabs[index],
                 style: TextStyle(
-                  color: selectedIndex == index ? Colors.white : Colors.grey,
+                  color: selectedIndex == index
+                      ? AppColors.white
+                      : AppColors.greyColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),

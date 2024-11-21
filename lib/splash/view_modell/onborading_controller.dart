@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/onboarding_model.dart';
 
-class OnboardingController {
+class OnboardingViewModel {
   final PageController pageController = PageController();
   int currentPage = 0;
 
@@ -27,8 +27,7 @@ class OnboardingController {
         curve: Curves.easeInOut,
       );
     } else {
-      // Complete onboarding and navigate
-      print("Onboarding Completed!");
+   
     }
   }
 }

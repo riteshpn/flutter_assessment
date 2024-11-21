@@ -7,12 +7,12 @@ class CircleIconButton extends StatelessWidget {
   final VoidCallback onPressed; // Function to call when pressed
 
   const CircleIconButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.iconColor,
     required this.circleColor,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

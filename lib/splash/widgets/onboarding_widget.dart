@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/splash/enum/font_enum.dart';
+
 
 class OnboardingPage extends StatelessWidget {
   final String imagePath;
@@ -32,7 +32,11 @@ class OnboardingPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
             title,
-            style: FontStyleEnum.title.style,
+            style: const TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        )
           ),
         ),
 
@@ -43,7 +47,11 @@ class OnboardingPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
             subtitle,
-            style: FontStyleEnum.subtitle.style,
+            style:const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.normal,
+          color: Colors.white54,
+        )
           ),
         ),
       ],

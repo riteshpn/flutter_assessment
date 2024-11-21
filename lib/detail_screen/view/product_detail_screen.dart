@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/detail_screen/colors_extention.dart';
-import 'package:flutter_assessment/detail_screen/view/product_image_gallery.dart';
-import 'package:flutter_assessment/detail_screen/view/product_image_slider.dart';
-import 'package:flutter_assessment/detail_screen/view/product_price_widget.dart';
-import 'package:flutter_assessment/detail_screen/view/product_size_selector.dart';
+import 'package:flutter_assessment/detail_screen/widgets/product_image_gallery.dart';
+import 'package:flutter_assessment/detail_screen/widgets/product_image_slider.dart';
+import 'package:flutter_assessment/detail_screen/widgets/product_price_widget.dart';
+import 'package:flutter_assessment/detail_screen/widgets/product_size_selector.dart';
 import 'package:flutter_assessment/detail_screen/view_model/detail_product_view.dart';
 import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final ProductDetailViewModel productViewModel = ProductDetailViewModel();
+
+  ProductDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.primaryBackground,
+        backgroundColor: AppColors.background,
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -33,19 +35,20 @@ class ProductDetailsScreen extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     icon: Icons.arrow_back,
-                    iconColor: AppColors.primaryText,
+                    iconColor: AppColors.white,
                   ),
                   const Text(
                     "Men's Shoes",
                     style: TextStyle(
-                        color: AppColors.primaryText,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18),
                   ),
                   CircleIconWidget(
+                    message: "You click to the cart button",
                     onPressed: () {},
                     icon: Icons.shopping_cart,
-                    iconColor: AppColors.primaryText,
+                    iconColor: AppColors.white,
                   ),
                 ],
               ),
@@ -56,12 +59,12 @@ class ProductDetailsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               const Text(
                 "BEST SELLER",
-                style: TextStyle(color: AppColors.priceColor, fontSize: 12),
+                style: TextStyle(color: AppColors.blueColor, fontSize: 12),
               ),
               Text(
                 product.name,
                 style: const TextStyle(
-                  color: AppColors.primaryText,
+                  color: AppColors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -70,7 +73,7 @@ class ProductDetailsScreen extends StatelessWidget {
               Text(
                 "\$${product.originalPrice.toStringAsFixed(2)}",
                 style: const TextStyle(
-                    color: AppColors.primaryText,
+                    color: AppColors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
@@ -78,7 +81,7 @@ class ProductDetailsScreen extends StatelessWidget {
               Text(
                 product.description,
                 style: const TextStyle(
-                  color: AppColors.secondaryText,
+                  color: AppColors.white,
                   fontSize: 14,
                   height: 1.5,
                 ),
@@ -86,7 +89,7 @@ class ProductDetailsScreen extends StatelessWidget {
               const SizedBox(height: 20),
               const Text(
                 "Gallery",
-                style: TextStyle(fontSize: 18, color: AppColors.primaryText),
+                style: TextStyle(fontSize: 18, color: AppColors.white),
               ),
               const SizedBox(
                 height: 20,
@@ -102,31 +105,27 @@ class ProductDetailsScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Size",
-                    style:
-                        TextStyle(fontSize: 18, color: AppColors.primaryText),
+                    style: TextStyle(fontSize: 18, color: AppColors.white),
                   ),
                   Row(
                     children: [
                       Text(
                         "EU",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.primaryText),
+                        style: TextStyle(fontSize: 14, color: AppColors.white),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         "US",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.primaryText),
+                        style: TextStyle(fontSize: 14, color: AppColors.white),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
                         "UK",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.primaryText),
+                        style: TextStyle(fontSize: 14, color: AppColors.white),
                       ),
                     ],
                   )

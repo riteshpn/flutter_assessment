@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProductGalleryWidget extends StatelessWidget {
   final List<String> gallery;
 
-  const ProductGalleryWidget({required this.gallery});
+  const ProductGalleryWidget({super.key, required this.gallery});
 
   @override
   Widget build(BuildContext context) {

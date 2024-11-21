@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -8,9 +9,9 @@ class MenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: () => ZoomDrawer.of(context)!.toggle(),
-        icon: Icon(
+        icon: const Icon(
           Icons.menu,
-          color: Colors.white,
+          color: AppColors.white,
         ));
   }
 }

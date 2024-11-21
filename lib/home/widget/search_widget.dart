@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -9,8 +10,8 @@ class SearchBarWidget extends StatelessWidget {
     required this.controller,
     this.onChanged,
     this.hintText = 'Search...',
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +19,19 @@ class SearchBarWidget extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       style: const TextStyle(
-        color: Colors.white, // Text color
+        color: AppColors.white, // Text color
       ),
       decoration: InputDecoration(
-        fillColor: Colors.black, // Background color
+        fillColor: AppColors.blackColor, // Background color
         filled: true,
         hintText: hintText,
         hintStyle: const TextStyle(
-          color: Colors.grey, // Hint text color
+          color: AppColors.greyColor, // Hint text color
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15),
         prefixIcon: const Icon(
           Icons.search,
-          color: Colors.grey, // Search icon color
+          color: AppColors.greyColor, // Search icon color
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30), // Rounded corners

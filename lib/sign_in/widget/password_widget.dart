@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class PasswordTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -11,8 +12,8 @@ class PasswordTextField extends StatelessWidget {
     required this.isPasswordVisible,
     required this.onChanged,
     required this.onVisibilityToggle,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class PasswordTextField extends StatelessWidget {
         const Text(
           'Password',
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -33,13 +34,13 @@ class PasswordTextField extends StatelessWidget {
           obscureText: !isPasswordVisible,
           // onChanged: onChanged,
           style: const TextStyle(
-            color: Colors.white, // Ensures input text is white and visible
+            color: AppColors.white, // Ensures input text is white and visible
           ),
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xFF1A1A1A),
+            fillColor: AppColors.filledcolor,
             hintText: 'Enter your password',
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: const TextStyle(color: AppColors.greyColor),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 16,
               horizontal: 12,
@@ -52,7 +53,7 @@ class PasswordTextField extends StatelessWidget {
                 isPasswordVisible
                     ? Icons.visibility_sharp
                     : Icons.visibility_off,
-                color: Colors.white,
+                color: AppColors.white,
               ),
               onPressed: onVisibilityToggle,
             ),

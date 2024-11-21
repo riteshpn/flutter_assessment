@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/cart_checkout/widget/cart_item_widget.dart';
+import 'package:flutter_assessment/detail_screen/view/product_detail_screen.dart';
 import 'package:flutter_assessment/home/widget/bottom_navbar_widget.dart';
 import 'package:flutter_assessment/home/widget/new_arrival_widget.dart';
 import 'package:flutter_assessment/home/widget/product-list.dart';
 import 'package:flutter_assessment/home/widget/sample_widget_list.dart';
 import 'package:flutter_assessment/home/widget/search_widget.dart';
 import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
-import 'package:flutter_assessment/slide/view/menu_widget.dart';
+import 'package:flutter_assessment/slide/widget/menu_widget.dart';
+import 'package:flutter_assessment/common/extensions/color_extension.dart';
 // Import the Custom Nav Bar
 
 class HomePage extends StatefulWidget {
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF1A2530),
+        backgroundColor: AppColors.background,
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
@@ -36,40 +39,42 @@ class _HomePageState extends State<HomePage> {
                       height: 48,
                       width: 48,
                       decoration: const BoxDecoration(
-                        color: Colors.black, // Black background color
-                        shape: BoxShape.circle, // Makes the container circular
+                        color: AppColors.blackColor,
+                        shape: BoxShape.circle,
                       ),
-                      child:
-                          const MenuWidget(), // Your child widget inside the container
+                      child: const MenuWidget(),
                     ),
                     const Column(
                       children: [
                         Text(
                           "Store Location",
                           style: TextStyle(
-                            color: Color(0xFF707B81),
+                            color: AppColors.secondaryText,
                           ),
                         ),
                         Row(
                           children: [
                             Icon(
                               Icons.location_on,
-                              color: Colors.red,
+                              color: AppColors.redColor,
                             ),
                             Text(
                               'Monodolibug,Sylhet',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                color: AppColors.white,
+                              ),
                             )
                           ],
                         )
                       ],
                     ),
                     CircleIconWithDotWidget(
+                      message: "cart item selected",
                       image: "assets/Frame.png",
                       size: 50.0,
 
-                      backgroundColor: Colors.black,
-                      iconColor: Colors.white,
+                      backgroundColor: AppColors.blackColor,
+                      iconColor: AppColors.white,
                       showDot: true, // Enables the red dot
                       dotSize: 8.0, // Custom size for the dot
                     ),
@@ -82,25 +87,36 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                const CustomTabBar(
-                  tabs: ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
+                CustomTabBar(
+                  tabs: const ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
+                  onTabSelected: (index) {},
+                  message: 'sample selected',
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Popular Shoes",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    Text(
-                      "See all",
-                      style: TextStyle(color: Colors.blue, fontSize: 16.0),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductDetailsScreen()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                            color: AppColors.blueColor, fontSize: 16.0),
+                      ),
                     )
                   ],
                 ),
@@ -111,19 +127,28 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "New Arrivals",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    Text(
-                      "See all",
-                      style: TextStyle(color: Colors.blue, fontSize: 16.0),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductDetailsScreen()));
+                      },
+                      child: const Text(
+                        "See all",
+                        style: TextStyle(
+                            color: AppColors.blueColor, fontSize: 16.0),
+                      ),
                     )
                   ],
                 ),
@@ -136,11 +161,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.backpack, color: Colors.white),
+          onPressed: () {
+            ToastWidget.showToast(message: "cart button clicked");
+          },
+          backgroundColor: AppColors.blueColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
+          ),
+          child:   const Icon(
+            Icons.backpack,
+            color: AppColors.white,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
