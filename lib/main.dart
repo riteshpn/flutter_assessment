@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/splash/view/spalsh_screen.dart';
+import 'package:flutter_assessment/splash_screen/view/spalsh_screen.dart';
 
 void main() {
   runApp(MyApp());

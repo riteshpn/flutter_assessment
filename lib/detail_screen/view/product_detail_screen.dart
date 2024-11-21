@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/detail_screen/widgets/product_image_gallery.dart';
-import 'package:flutter_assessment/detail_screen/widgets/product_image_slider.dart';
-import 'package:flutter_assessment/detail_screen/widgets/product_price_widget.dart';
-import 'package:flutter_assessment/detail_screen/widgets/product_size_selector.dart';
+import 'package:flutter_assessment/detail_screen/widget/product_image_gallery.dart';
+import 'package:flutter_assessment/detail_screen/widget/product_image_slider.dart';
+import 'package:flutter_assessment/detail_screen/widget/product_price_widget.dart';
+import 'package:flutter_assessment/detail_screen/widget/product_size_selector.dart';
 import 'package:flutter_assessment/detail_screen/view_model/detail_product_view.dart';
-import 'package:flutter_assessment/sign_in/widget/circle_icon_widget.dart';
+import 'package:flutter_assessment/sign_in_screen/widget/circle_icon_widget.dart';
 import 'package:flutter_assessment/common/extensions/color_extension.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
