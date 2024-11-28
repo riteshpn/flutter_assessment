@@ -1,13 +1,15 @@
 # flutter_assessment
 
 Onboarding Screen:
-
-    What it does: Introduces the app to the user with two screens, each containing an image, title, and description. The last screen transitions to the Sign In page when the "Get Started" button is pressed.
+  ![onboarding screen](https://github.com/user-attachments/assets/167fa0bf-b513-41d9-a821-82e7fedc67b5)
+  ![onboardind screen 2](https://github.com/user-attachments/assets/63b42756-f91e-404a-a572-67950e650519)
+     What it does: Introduces the app to the user with two screens, each containing an image, title, and description. The last screen transitions to the Sign In page when the "Get Started" button is pressed.
     Enhancements:
         Add an animation (e.g., slide or fade-in) when transitioning between onboarding pages.
         Use a DotsIndicator widget to show the current page in the onboarding flow.
 
 Sign In Screen:
+    ![Sign In screen](https://github.com/user-attachments/assets/fe9a438f-2adb-46a2-baa0-6eea6bf91e48)
 
     What it does: Provides a simple UI for user authentication with a "Sign In" button that navigates to the Home Screen.
     Enhancements:
@@ -15,6 +17,9 @@ Sign In Screen:
         Use a custom-designed "Sign In" button to enhance the UI.
 
 Home Screen:
+  ![home_screen&slideablescreen](https://github.com/user-attachments/assets/d274e22a-f6c6-4e44-b022-a42d13ebb8de)
+  ![Home_screen](https://github.com/user-attachments/assets/f04098b1-8093-421b-818d-8c9d9ed11b7e)
+
 
     What it does: Displays a list of products in a horizontal layout, a "New Arrival" section, and includes a slidable drawer for navigation.
     Enhancements:
@@ -22,6 +27,7 @@ Home Screen:
         Enhance the product cards with interactive effects like a shadow or a zoom-in animation on tap.
 
 Product Detail Screen:
+  ![Product_detail_screen](https://github.com/user-attachments/assets/545857e1-e78b-4865-94c1-7dd129e34e63)
 
     What it does: Shows product details (image, price, size, description) with an "Add to Cart" button.
     Enhancements:
@@ -29,6 +35,7 @@ Product Detail Screen:
         Add a "quantity selector" to allow users to specify the number of items they want to add to the cart.
 
 Cart Screen:
+    ![cart_screen](https://github.com/user-attachments/assets/925d31ae-74e7-4d2a-9670-0f763b3c7049)
 
     What it does: Lists products added to the cart, calculates total price and discounts, and displays the final amount.
     Enhancements:
