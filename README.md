@@ -1,7 +1,7 @@
 # flutter_assessment
 
 Onboarding Screen:
-<img src="https://github.com/user-attachments/assets/167fa0bf-b513-41d9-a821-82e7fedc67b5" width="48">
+<img src="https://github.com/user-attachments/assets/167fa0bf-b513-41d9-a821-82e7fedc67b5" width="70">
  
   ![onboardind screen 2](https://github.com/user-attachments/assets/63b42756-f91e-404a-a572-67950e650519)
      What it does: Introduces the app to the user with two screens, each containing an image, title, and description. The last screen transitions to the Sign In page when the "Get Started" button is pressed.
