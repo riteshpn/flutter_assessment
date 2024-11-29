@@ -5,12 +5,15 @@ Onboarding Screen:
 <img src="https://github.com/user-attachments/assets/63b42756-f91e-404a-a572-67950e650519" width="200" height="400">
 
 
+
+
  What it does: Introduces the app to the user with two screens, each containing an image, title, and description. The last screen transitions to the Sign In page when the "Get Started" button is pressed.
  Enhancements:  Add an animation (e.g., slide or fade-in) when transitioning between onboarding pages.
                    Use a DotsIndicator widget to show the current page in the onboarding flow.
 
 Sign In Screen:
     <img src="https://github.com/user-attachments/assets/fe9a438f-2adb-46a2-baa0-6eea6bf91e48" width="200" height="400">
+
 
     
      What it does: Provides a simple UI for user authentication with a "Sign In" button that navigates to the Home Screen.
@@ -23,6 +26,7 @@ Home Screen:
   <img src="https://github.com/user-attachments/assets/f04098b1-8093-421b-818d-8c9d9ed11b7e" width="200" height="400">
 
   
+
  
 What it does: Displays a list of products in a horizontal layout, a "New Arrival" section, and includes a slidable drawer for navigation.
     Enhancements:
@@ -31,6 +35,7 @@ What it does: Displays a list of products in a horizontal layout, a "New Arrival
 
 Product Detail Screen:
   <img src="https://github.com/user-attachments/assets/545857e1-e78b-4865-94c1-7dd129e34e63" width="200" height="400">
+
 
   
 
